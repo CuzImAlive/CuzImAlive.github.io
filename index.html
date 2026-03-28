@@ -23,7 +23,7 @@
     nav.scrolled .nav-logo span { color: var(--accent) !important; }
     nav.scrolled #theme-toggle { border-color: var(--border) !important; color: var(--text-secondary) !important; }
 
-    /* Hero covers nav + main's top padding so there's zero gap */
+    /* Hero */
     .hero {
       height: calc(100vh + var(--nav-h) + 3rem);
       width: 100%;
@@ -32,7 +32,7 @@
       justify-content: flex-end;
       position: relative;
       overflow: hidden;
-      background: url('/img/hero.JPEG') center 30% / cover no-repeat;
+      background: url('/img/hero.JPEG') center 60% / cover no-repeat;
       margin-top: calc(-1 * var(--nav-h));
       margin-bottom: 0;
     }
@@ -55,7 +55,6 @@
       max-width: 780px;
       margin: 0 auto;
       width: 100%;
-      /* Push text up above where main content starts */
       padding: 0 2rem calc(var(--nav-h) + 3rem + 3rem);
     }
 
@@ -71,23 +70,13 @@
       animation: fadeUp 0.5s ease 0.2s forwards;
     }
 
-    .hero-tagline {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.7);
-      max-width: 420px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 0.5s ease 0.3s forwards;
-    }
-
     .scroll-indicator {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 0.4rem;
       opacity: 0;
-      animation: fadeUp 0.5s ease 0.5s forwards;
+      animation: fadeUp 0.5s ease 0.4s forwards;
     }
 
     .scroll-indicator span {
@@ -145,7 +134,6 @@
       font-family: var(--font-mono); font-size: 0.8rem;
       color: var(--accent); letter-spacing: 0.08em; margin-bottom: 1rem;
     }
-    .about-body p + p { margin-top: 1rem; }
 
     .info-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.85rem; }
     .info-row { display: flex; gap: 1rem; font-size: 0.9rem; align-items: baseline; }
@@ -155,35 +143,6 @@
       color: var(--text-muted); min-width: 100px;
     }
     .info-val { color: var(--text-secondary); }
-
-    .exp-timeline { position: relative; padding-left: 2rem; margin-top: 0.5rem; }
-    .exp-timeline::before {
-      content: ''; position: absolute;
-      left: 7px; top: 8px; bottom: 0;
-      width: 1px; background: var(--border);
-    }
-    .exp-item { position: relative; margin-bottom: 1.25rem; }
-    .exp-item::before {
-      content: ''; position: absolute;
-      left: -2rem; top: 16px;
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: var(--bg); border: 2px solid var(--border);
-      transition: border-color 0.2s ease, background 0.2s ease;
-    }
-    .exp-item.active::before { background: var(--accent); border-color: var(--accent); }
-    .exp-item:hover::before { border-color: var(--accent); }
-    .exp-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.1rem 1.4rem;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .exp-item:hover .exp-card { border-color: var(--accent-dim); box-shadow: 0 4px 20px rgba(59,130,246,0.07); }
-    .exp-role { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; }
-    .exp-org { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.3rem; font-weight: 500; }
-    .exp-meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; }
-    .exp-meta .sep { margin: 0 0.4rem; opacity: 0.5; }
-    .exp-desc { font-size: 0.84rem; color: var(--text-secondary); margin-top: 0.55rem; line-height: 1.65; }
   </style>
 </head>
 <body>
@@ -219,83 +178,36 @@
         <h1>Hakkyun Kim</h1>
         <div class="role">Biomedical Engineering Student · CWRU</div>
         <p>
-          Hi! My name is Hakkyun and people call me Henry. I'm passionate about applying
-          engineering with medicine to drive innovation and impact in healthcare, with a
-          particular focus on the nervous system and neural engineering.
+          I'm a biomedical engineering student at Case Western Reserve University
+          with a focus on neural engineering.
+          Outside the lab, I fence competitively, play oboe, and think about
+          the future of neurotech.
         </p>
-      </div>
-    </div>
 
-    <section class="about-body fade-in">
-      <div class="section-header">
-        <h2>Background</h2>
-        <div class="section-line"></div>
-      </div>
-      <p>
-        My research sits at the intersection of photobiomodulation and neural inhibition,
-        with a focus on selectively targeting nociceptive C-fibers as an alternative to
-        opioid-based pain management. I work in the Moffitt Lab at CWRU under Dr. Mike Moffitt
-        and Dr. Aaron Jenkins.
-      </p>
-      <p>
-        I'm currently applying to MD-PhD (MSTP) programs, with the goal of combining
-        a career in neurosurgery with continued research in neural engineering and neurotech.
-        I've had the opportunity to work at the Mayo Clinic SURF program under Dr. Kendall Lee,
-        an experience that deepened my commitment to translational research.
-      </p>
-      <p>
-        Outside the lab, I'm a classically trained oboist and enjoy thinking about
-        entrepreneurship, investing, and how technology shapes medicine.
-      </p>
-    </section>
-
-    <div class="info-list fade-in">
-      <div class="info-row">
-        <span class="info-key">Institution</span>
-        <span class="info-val">Case Western Reserve University</span>
-      </div>
-      <div class="info-row">
-        <span class="info-key">Degree</span>
-        <span class="info-val">B.S. Biomedical Engineering (expected May 2027)</span>
-      </div>
-      <div class="info-row">
-        <span class="info-key">Lab</span>
-        <span class="info-val">Moffitt Lab — Neural Engineering</span>
-      </div>
-      <div class="info-row">
-        <span class="info-key">Interests</span>
-        <span class="info-val">Electrophysiology, Pain, Photobiomodulation, Neurotech</span>
-      </div>
-      <div class="info-row">
-        <span class="info-key">Email</span>
-        <span class="info-val"><a href="mailto:hxk807@case.edu">hxk807@case.edu</a></span>
-      </div>
-    </div>
-
-    <section style="margin-top: 3rem;" class="fade-in">
-      <div class="section-header">
-        <h2>Experience</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="exp-timeline">
-        <div class="exp-item active">
-          <div class="exp-card">
-            <div class="exp-role">B.S. / M.S. Biomedical Engineering</div>
-            <div class="exp-org">Case Western Reserve University</div>
-            <div class="exp-meta">2023 — Present <span class="sep">·</span> Cleveland, OH</div>
-            <div class="exp-desc">Researching transient selective neural inhibition via photobiomodulation (tSNIP) in the Moffitt Lab. TA for EBME 202 and EBME 407.</div>
+        <div class="info-list">
+          <div class="info-row">
+            <span class="info-key">Institution</span>
+            <span class="info-val">Case Western Reserve University</span>
           </div>
-        </div>
-        <div class="exp-item active">
-          <div class="exp-card">
-            <div class="exp-role">SURF Research Fellow</div>
-            <div class="exp-org">Mayo Clinic — Neural Engineering & Precision Surgery Lab</div>
-            <div class="exp-meta">Summer 2025 <span class="sep">·</span> Rochester, MN</div>
-            <div class="exp-desc">Research fellowship under Dr. Kendall Lee and Dr. Hojin Shin, focused on neuromodulation and surgical precision.</div>
+          <div class="info-row">
+            <span class="info-key">Degree</span>
+            <span class="info-val">B.S. Biomedical Engineering (expected May 2027)</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Lab</span>
+            <span class="info-val">CWRU PBM Lab PI: Dr. Michael Moffitt and Dr. Michael Jenkins</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Interests</span>
+            <span class="info-val">Electrophysiology, Pain, Photobiomodulation, Neurotech</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Email</span>
+            <span class="info-val"><a href="mailto:hxk807@case.edu">hxk807@case.edu</a></span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <footer>
       <span>© 2026 Hakkyun Kim</span>
