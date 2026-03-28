@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/theme.js"></script>
   <style>
-    /* Transparent nav over hero */
     nav {
       background: transparent !important;
       border-bottom: none !important;
@@ -23,7 +22,6 @@
     nav.scrolled .nav-logo span { color: var(--accent) !important; }
     nav.scrolled #theme-toggle { border-color: var(--border) !important; color: var(--text-secondary) !important; }
 
-    /* Hero */
     .hero {
       height: calc(100vh + var(--nav-h) + 3rem);
       width: 100%;
@@ -41,12 +39,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.15) 0%,
-        rgba(0,0,0,0.45) 55%,
-        rgba(0,0,0,0.82) 100%
-      );
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.82) 100%);
     }
 
     .hero-inner {
@@ -88,11 +81,9 @@
     }
 
     .scroll-line {
-      width: 1px;
-      height: 48px;
+      width: 1px; height: 48px;
       background: rgba(255,255,255,0.25);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
 
     .scroll-line::after {
@@ -109,7 +100,6 @@
       100% { top: 100%; }
     }
 
-    /* About */
     .about-grid {
       display: grid;
       grid-template-columns: 160px 1fr;
@@ -144,23 +134,25 @@
     }
     .info-val { color: var(--text-secondary); }
 
-    /* Updates section */
-    .updates-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
+    /* ---- Update cards ---- */
+    .updates-grid { display: flex; flex-direction: column; gap: 1rem; }
 
     .update-card {
-      display: flex;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: 1fr auto;
       gap: 1.25rem;
-      padding: 1.1rem 1.25rem;
+      padding: 1.25rem 1.5rem;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       text-decoration: none;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      align-items: start;
+    }
+
+    /* No image = single column */
+    .update-card.no-image {
+      grid-template-columns: 1fr;
     }
 
     .update-card:hover {
@@ -170,15 +162,14 @@
     }
 
     .update-source {
+      display: inline-block;
       font-family: var(--font-mono);
       font-size: 0.65rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
-      white-space: nowrap;
-      flex-shrink: 0;
-      margin-top: 0.15rem;
+      margin-bottom: 0.6rem;
     }
 
     .source-linkedin { background: #E8F0FE; color: #1a73e8; }
@@ -192,21 +183,19 @@
     [data-theme="dark"] .source-abstract { background: #0d2d1a; color: #4ade80; }
     [data-theme="dark"] .source-update   { background: #2d1a0d; color: #fb923c; }
 
-    .update-body { flex: 1; min-width: 0; }
-
     .update-title {
-      font-size: 0.88rem;
-      font-weight: 500;
+      font-size: 0.9rem;
+      font-weight: 600;
       color: var(--text-primary);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
       line-height: 1.45;
     }
 
     .update-desc {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
     }
 
     .update-date {
@@ -214,6 +203,21 @@
       font-size: 0.68rem;
       color: var(--text-muted);
       letter-spacing: 0.04em;
+    }
+
+    /* Image slot */
+    .update-image {
+      width: 110px;
+      height: 90px;
+      border-radius: 6px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 500px) {
+      .update-card { grid-template-columns: 1fr; }
+      .update-image { width: 100%; height: 160px; order: -1; }
     }
   </style>
 </head>
@@ -251,10 +255,9 @@
         <div class="role">Biomedical Engineering Student · CWRU</div>
         <p>
           I'm a biomedical engineering student at Case Western Reserve University
-          focused on neural engineering and non-opioid pain management.
+          focused on neural engineering.
           Outside the lab, I fence competitively, play oboe, and invest in stocks and real estate.
         </p>
-
         <div class="info-list">
           <div class="info-row">
             <span class="info-key">Institution</span>
@@ -266,7 +269,7 @@
           </div>
           <div class="info-row">
             <span class="info-key">Lab</span>
-            <span class="info-val">PBM Lab · PI: Dr. Michael Moffitt</span>
+            <span class="info-val">PBM Lab · PI: Dr. Michael Moffitt & Dr. Michael Jenkins</span>
           </div>
           <div class="info-row">
             <span class="info-key">Interests</span>
@@ -280,48 +283,51 @@
       </div>
     </div>
 
-    <!-- Updates -->
-    <section style="margin-top: 3rem;" class="fade-in">
+    <!-- ============================================================
+         UPDATES — how to add a new card:
+ 
+         WITH image:
+           <a href="URL" class="update-card" target="_blank">
+             <div class="update-body">
+               <div class="update-title">Title</div>
+               <div class="update-desc">Description.</div>
+               <div class="update-date">Mon YYYY</div>
+             </div>
+             <img src="/img/yourimage.jpg" alt="" class="update-image" />
+           </a>
+ 
+         WITHOUT image:
+           <a href="URL" class="update-card no-image" target="_blank">
+             <div class="update-body">
+               <div class="update-title">Title</div>
+               <div class="update-desc">Description.</div>
+               <div class="update-date">Mon YYYY</div>
+             </div>
+           </a>
+    ============================================================ -->
+    <section style="margin-top: 1rem;" class="fade-in">
       <div class="section-header">
         <h2>Updates</h2>
         <div class="section-line"></div>
       </div>
-
+ 
       <div class="updates-grid">
-
-        <!-- Example entries — replace with your real links and content -->
-        <a href="#" class="update-card">
-          <span class="update-source source-abstract">Abstract</span>
+ 
+        <a href="#" class="update-card" target="_blank">
           <div class="update-body">
-            <div class="update-title">C-fiber ECAP Recording Methodology — Spring Intersections 2025</div>
-            <div class="update-desc">Submitted abstract documenting in vivo C-fiber ECAP recordings from rat sciatic nerve with nerve transection control.</div>
-            <div class="update-date">Mar 2025</div>
+            <div class="update-title">Mayo Clinic SURF</div>
+            <div class="update-desc">1 out of 180 students accepted. Joining Dr. Kendall Lee's Neural Engineering & Precision Surgery Lab for summer 2026. </div>
+            <div class="update-date">Feb 2026</div>
           </div>
+          <!-- Replace with your image once you have one:
+               <img src="/img/intersections.jpg" alt="" class="update-image" /> -->
+          <img src="/img/Mayo_clinic.jpg" alt="" class="update-image" />
         </a>
-
-        <a href="#" class="update-card">
-          <span class="update-source source-update">Update</span>
-          <div class="update-body">
-            <div class="update-title">Accepted to Mayo Clinic SURF Program</div>
-            <div class="update-desc">Joining Dr. Kendall Lee's Neural Engineering & Precision Surgery Lab for summer 2025.</div>
-            <div class="update-date">Feb 2025</div>
-          </div>
-        </a>
-
-        <!-- To add a LinkedIn post:
-        <a href="YOUR_LINKEDIN_POST_URL" class="update-card" target="_blank">
-          <span class="update-source source-linkedin">LinkedIn</span>
-          <div class="update-body">
-            <div class="update-title">Your post title or first line</div>
-            <div class="update-desc">Short description of what the post is about.</div>
-            <div class="update-date">Month Year</div>
-          </div>
-        </a>
-        -->
-
+ 
+ 
       </div>
     </section>
-
+ 
     <footer>
       <span>© 2026 Hakkyun Kim</span>
       <span>
@@ -330,9 +336,9 @@
         <a href="https://github.com/cuzimalive" target="_blank">GitHub</a>
       </span>
     </footer>
-
+ 
   </main>
-
+ 
   <script>
     const nav = document.querySelector('nav');
     const hero = document.querySelector('.hero');
@@ -340,6 +346,7 @@
       nav.classList.toggle('scrolled', window.scrollY > hero.offsetHeight - 80);
     });
   </script>
-
+ 
 </body>
 </html>
+ 
