@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Hakkyun Kim</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/theme.js"></script>
+  <style>
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+    }
+
+    @media (max-width: 560px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-dim);
+      box-shadow: 0 6px 28px rgba(59,130,246,0.08);
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-card h3 {
+      font-size: 0.95rem;
+    }
+
+    .project-card p {
+      font-size: 0.84rem;
+      flex: 1;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .project-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">hk<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+    </ul>
+    <button id="theme-toggle" aria-label="Toggle theme"></button>
+  </nav>
+
+  <main>
+
+    <section class="fade-in" style="margin-bottom: 3rem;">
+      <h1 style="margin-bottom: 1rem;">Projects</h1>
+      <p style="max-width: 560px;">
+        Engineering builds, data tools, and side projects — spanning hardware,
+        signal processing, and software.
+      </p>
+    </section>
+
+    <div class="projects-grid">
+
+      <div class="project-card fade-in">
+        <div class="project-icon">😴</div>
+        <h3>Narcolepsy Detection Wearable</h3>
+        <p>
+          ESP32-based device with multimodal sensor fusion (EMG, IMU, heart rate)
+          and haptic feedback for real-time narcolepsy episode detection. Patent pending.
+        </p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag">ESP32</span>
+            <span class="tag">EMG</span>
+            <span class="tag">Hardware</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-icon">⚡</div>
+        <h3>ECAP Analysis Pipeline</h3>
+        <p>
+          MATLAB pipeline for extracting and averaging compound action potentials
+          from Plexon OmniPlex recordings, with artifact subtraction via post-transection
+          templates and multi-amplitude overlay plots.
+        </p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag">MATLAB</span>
+            <span class="tag">Plexon SDK</span>
+            <span class="tag">Signal Processing</span>
+          </div>
+          <!-- <a href="https://github.com/yourhandle/ecap-pipeline" class="project-link" target="_blank">GitHub →</a> -->
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-icon">🏠</div>
+        <h3>Rental Property Dashboard</h3>
+        <p>
+          Personal finance tracker for managing a rental property in Cleveland —
+          tracking income, expenses, and ROI over time.
+        </p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Finance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Template for adding more projects:
+      <div class="project-card fade-in">
+        <div class="project-icon">🔧</div>
+        <h3>Project Name</h3>
+        <p>Short description of what it does and why.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag">Tag 1</span>
+          </div>
+          <a href="#" class="project-link" target="_blank">GitHub →</a>
+        </div>
+      </div>
+      -->
+
+    </div>
+
+    <footer>
+      <span>© 2026 Hakkyun Kim</span>
+      <span>
+        <a href="mailto:you@email.com">Email</a> &nbsp;·&nbsp;
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+        <a href="https://github.com/yourhandle" target="_blank">GitHub</a>
+      </span>
+    </footer>
+
+  </main>
+
+</body>
+</html>

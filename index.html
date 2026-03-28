@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hakkyun Kim</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/theme.js"></script>
+  <style>
+    /* ---------- Hero ---------- */
+    .hero {
+      padding-top: 3rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Primary button */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.6rem 1.25rem;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+    }
+    .btn-primary:hover {
+      opacity: 0.88;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    /* ---------- Divider ---------- */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3.5rem 0;
+    }
+
+    /* ---------- Snapshot grid ---------- */
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 540px) {
+      .snapshot-grid { grid-template-columns: 1fr; }
+    }
+
+    .snap-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      transition: border-color var(--transition);
+      text-decoration: none;
+      display: block;
+    }
+
+    .snap-card:hover {
+      border-color: var(--accent-dim);
+      opacity: 1;
+    }
+
+    .snap-icon {
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .snap-title {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .snap-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="nav-logo">hk<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/research.html">Research</a></li>
+      <li><a href="pages/projects.html">Projects</a></li>
+      <li><a href="pages/cv.html">CV</a></li>
+      <li><a href="pages/hobbies.html">Hobbies</a></li>
+    </ul>
+    <button id="theme-toggle" aria-label="Toggle theme"></button>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-eyebrow fade-in">Case Western Reserve University</div>
+      <h1 class="fade-in">Hakkyun Kim</h1>
+      <p class="hero-sub fade-in">
+        Biomedical Engineering Student interested in neural engineering,
+        pain research, and building tools at the intersection of science and medicine.
+      </p>
+      <div class="hero-cta fade-in">
+        <a href="pages/research.html" class="btn btn-primary">View Research →</a>
+        <a href="pages/cv.html" class="btn btn-ghost">Download CV</a>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Snapshot cards -->
+    <section>
+      <div class="section-header fade-in">
+        <h2>Quick Links</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="snapshot-grid">
+        <a href="pages/about.html" class="snap-card fade-in">
+          <div class="snap-icon">👤</div>
+          <div class="snap-title">About Me</div>
+          <div class="snap-desc">Background, interests, and what drives my work.</div>
+        </a>
+        <a href="pages/research.html" class="snap-card fade-in">
+          <div class="snap-icon">🔬</div>
+          <div class="snap-title">Research</div>
+          <div class="snap-desc">Publications, projects, and ongoing lab work.</div>
+        </a>
+        <a href="pages/projects.html" class="snap-card fade-in">
+          <div class="snap-icon">🛠</div>
+          <div class="snap-title">Projects</div>
+          <div class="snap-desc">Engineering builds, tools, and side projects.</div>
+        </a>
+        <a href="pages/hobbies.html" class="snap-card fade-in">
+          <div class="snap-icon">🎵</div>
+          <div class="snap-title">Hobbies</div>
+          <div class="snap-desc">Music, curiosities, and life outside the lab.</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span>© 2026 Hakkyun Kim</span>
+      <span>
+        <a href="mailto:hxk807@case.edu">Email</a> &nbsp;·&nbsp;
+        <a href="https://linkedin.com/in/hakkyunkim" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+        <a href="https://github.com/cuzimalive" target="_blank">GitHub</a>
+      </span>
+    </footer>
+
+  </main>
+
+</body>
+</html>
