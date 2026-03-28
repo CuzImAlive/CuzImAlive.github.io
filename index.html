@@ -18,15 +18,14 @@
     nav .nav-logo span { color: #fff !important; }
     #theme-toggle { border-color: rgba(255,255,255,0.3) !important; color: rgba(255,255,255,0.7) !important; }
 
-    /* Restore nav after scrolling */
     nav.scrolled { background: var(--bg) !important; border-bottom: 1px solid var(--border) !important; }
     nav.scrolled .nav-links a, nav.scrolled .nav-logo { color: var(--text-secondary) !important; }
     nav.scrolled .nav-logo span { color: var(--accent) !important; }
     nav.scrolled #theme-toggle { border-color: var(--border) !important; color: var(--text-secondary) !important; }
 
-    /* Hero */
+    /* Hero covers nav + main's top padding so there's zero gap */
     .hero {
-      height: 100vh;
+      height: calc(100vh + var(--nav-h) + 3rem);
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -35,7 +34,6 @@
       overflow: hidden;
       background: url('/img/hero.JPEG') center 30% / cover no-repeat;
       margin-top: calc(-1 * var(--nav-h));
-      padding-top: var(--nav-h);
       margin-bottom: 0;
     }
 
@@ -46,8 +44,8 @@
       background: linear-gradient(
         to bottom,
         rgba(0,0,0,0.15) 0%,
-        rgba(0,0,0,0.45) 50%,
-        rgba(0,0,0,0.8) 100%
+        rgba(0,0,0,0.45) 55%,
+        rgba(0,0,0,0.82) 100%
       );
     }
 
@@ -57,7 +55,8 @@
       max-width: 780px;
       margin: 0 auto;
       width: 100%;
-      padding: 0 2rem 4rem;
+      /* Push text up above where main content starts */
+      padding: 0 2rem calc(var(--nav-h) + 3rem + 3rem);
     }
 
     .hero-name {
@@ -121,14 +120,6 @@
       100% { top: 100%; }
     }
 
-    /* Main — flush against hero, no gap */
-    main {
-      padding-top: 4rem;
-      background: var(--bg);
-      position: relative;
-      z-index: 1;
-    }
-
     /* About */
     .about-grid {
       display: grid;
@@ -165,7 +156,6 @@
     }
     .info-val { color: var(--text-secondary); }
 
-    /* Experience Timeline */
     .exp-timeline { position: relative; padding-left: 2rem; margin-top: 0.5rem; }
     .exp-timeline::before {
       content: ''; position: absolute;
@@ -194,13 +184,6 @@
     .exp-meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; }
     .exp-meta .sep { margin: 0 0.4rem; opacity: 0.5; }
     .exp-desc { font-size: 0.84rem; color: var(--text-secondary); margin-top: 0.55rem; line-height: 1.65; }
-    body {
-      margin: 0;
-      background: var(--bg);
-    }
-    html {
-      background: var(--bg);
-    }
   </style>
 </head>
 <body>
