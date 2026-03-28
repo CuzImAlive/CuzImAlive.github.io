@@ -7,44 +7,24 @@
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/theme.js"></script>
   <style>
-    /* Make nav transparent so hero shows through */
+    /* Transparent nav over hero */
     nav {
       background: transparent !important;
       border-bottom: none !important;
       transition: background 0.3s ease, border-color 0.3s ease;
     }
-
-    /* Nav text white when over hero */
-    nav .nav-links a,
-    nav .nav-logo {
-      color: rgba(255,255,255,0.85) !important;
-    }
-    nav .nav-links a:hover,
-    nav .nav-logo:hover {
-      color: #fff !important;
-    }
+    nav .nav-links a, nav .nav-logo { color: rgba(255,255,255,0.85) !important; }
+    nav .nav-links a:hover, nav .nav-logo:hover { color: #fff !important; }
     nav .nav-logo span { color: #fff !important; }
-    #theme-toggle {
-      border-color: rgba(255,255,255,0.3) !important;
-      color: rgba(255,255,255,0.7) !important;
-    }
+    #theme-toggle { border-color: rgba(255,255,255,0.3) !important; color: rgba(255,255,255,0.7) !important; }
 
-    /* Once scrolled past hero, restore nav */
-    nav.scrolled {
-      background: var(--bg) !important;
-      border-bottom: 1px solid var(--border) !important;
-    }
-    nav.scrolled .nav-links a,
-    nav.scrolled .nav-logo {
-      color: var(--text-secondary) !important;
-    }
+    /* Restore nav after scrolling */
+    nav.scrolled { background: var(--bg) !important; border-bottom: 1px solid var(--border) !important; }
+    nav.scrolled .nav-links a, nav.scrolled .nav-logo { color: var(--text-secondary) !important; }
     nav.scrolled .nav-logo span { color: var(--accent) !important; }
-    nav.scrolled #theme-toggle {
-      border-color: var(--border) !important;
-      color: var(--text-secondary) !important;
-    }
+    nav.scrolled #theme-toggle { border-color: var(--border) !important; color: var(--text-secondary) !important; }
 
-    /* ---- Hero — true full viewport, no offset needed ---- */
+    /* Hero */
     .hero {
       height: 100vh;
       width: 100%;
@@ -54,9 +34,9 @@
       position: relative;
       overflow: hidden;
       background: url('/img/hero.JPEG') center 30% / cover no-repeat;
-      /* Pull up to cover the nav area */
       margin-top: calc(-1 * var(--nav-h));
       padding-top: var(--nav-h);
+      margin-bottom: 0;
     }
 
     .hero::before {
@@ -141,13 +121,15 @@
       100% { top: 100%; }
     }
 
-    .hero-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0 0 4rem;
+    /* Main — flush against hero, no gap */
+    main {
+      padding-top: 4rem;
+      background: var(--bg);
+      position: relative;
+      z-index: 1;
     }
 
-    /* ---- About ---- */
+    /* About */
     .about-grid {
       display: grid;
       grid-template-columns: 160px 1fr;
@@ -206,19 +188,12 @@
       border-radius: var(--radius); padding: 1.1rem 1.4rem;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .exp-item:hover .exp-card {
-      border-color: var(--accent-dim);
-      box-shadow: 0 4px 20px rgba(59,130,246,0.07);
-    }
+    .exp-item:hover .exp-card { border-color: var(--accent-dim); box-shadow: 0 4px 20px rgba(59,130,246,0.07); }
     .exp-role { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; }
     .exp-org { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.3rem; font-weight: 500; }
     .exp-meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; }
     .exp-meta .sep { margin: 0 0.4rem; opacity: 0.5; }
     .exp-desc { font-size: 0.84rem; color: var(--text-secondary); margin-top: 0.55rem; line-height: 1.65; }
-    main {
-      padding-top: 3rem;
-      background: var(--bg);
-    }
   </style>
 </head>
 <body>
@@ -237,9 +212,7 @@
   <section class="hero">
     <div class="hero-inner">
       <h1 class="hero-name">Hakkyun Kim</h1>
-      <p class="hero-tagline">
-        Aspiring physician-scientist and neural engineer.
-      </p>
+      <p class="hero-tagline">Aspiring physician-scientist and neural engineer.</p>
       <div class="scroll-indicator">
         <span>Scroll</span>
         <div class="scroll-line"></div>
@@ -248,8 +221,6 @@
   </section>
 
   <main>
-
-    <hr class="hero-divider" />
 
     <div class="about-grid fade-in">
       <div class="avatar">
@@ -349,16 +320,10 @@
   </main>
 
   <script>
-    // Switch nav from transparent to solid once you scroll past the hero
     const nav = document.querySelector('nav');
     const hero = document.querySelector('.hero');
-
     window.addEventListener('scroll', () => {
-      if (window.scrollY > hero.offsetHeight - 80) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+      nav.classList.toggle('scrolled', window.scrollY > hero.offsetHeight - 80);
     });
   </script>
 
