@@ -7,12 +7,93 @@
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/theme.js"></script>
   <style>
-    .hobby-section { margin-bottom: 3rem; }
-    .hobby-block { display: grid; grid-template-columns: 56px 1fr; gap: 1.25rem; align-items: start; padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1rem; transition: border-color var(--transition); }
-    .hobby-block:hover { border-color: var(--accent-dim); }
-    .hobby-emoji { font-size: 2rem; line-height: 1; padding-top: 0.1rem; }
-    .hobby-block h3 { margin-bottom: 0.3rem; }
-    .hobby-block p { font-size: 0.87rem; }
+    .page-header { margin-bottom: 4rem; }
+    .page-header h1 { margin-bottom: 0.5rem; }
+    .page-header p { max-width: 440px; font-size: 0.95rem; }
+
+    .hobby-list { display: flex; flex-direction: column; }
+
+    .hobby-entry {
+      display: grid;
+      grid-template-columns: 64px 1fr 1fr;
+      gap: 0 2.5rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      position: relative;
+      transition: border-color 0.2s ease;
+    }
+    .hobby-entry:last-child { border-bottom: 1px solid var(--border); }
+    .hobby-entry:hover { border-color: var(--accent-dim); }
+
+    /* Animated left accent bar on hover */
+    .hobby-entry::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 2px; height: 0;
+      background: var(--accent);
+      transition: height 0.3s ease;
+    }
+    .hobby-entry:hover::before { height: 100%; }
+
+    /* Big decorative number */
+    .hobby-num {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      color: var(--border);
+      line-height: 1;
+      padding-top: 0.1rem;
+      user-select: none;
+      transition: color 0.2s ease;
+    }
+    .hobby-entry:hover .hobby-num { color: var(--accent-dim); }
+
+    /* Left col */
+    .hobby-category {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .hobby-title {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .hobby-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    /* Right col */
+    .hobby-right { padding-top: 0.2rem; }
+    .hobby-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+    .hobby-detail { display: flex; align-items: baseline; gap: 0.75rem; }
+    .hobby-detail-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .hobby-detail-val { font-size: 0.85rem; color: var(--accent); font-weight: 500; }
+
+    @media (max-width: 640px) {
+      .hobby-entry { grid-template-columns: 40px 1fr; }
+      .hobby-num { font-size: 1.8rem; }
+      .hobby-title { font-size: 1.3rem; }
+      .hobby-right { grid-column: 2; padding-top: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -30,56 +111,123 @@
 
   <main>
 
-    <section class="fade-in" style="margin-bottom: 3rem;">
-      <h1 style="margin-bottom: 1rem;">Hobbies</h1>
-      <p style="max-width: 540px;">A few things I care about outside the lab and classroom.</p>
-    </section>
+    <div class="page-header fade-in">
+      <h1>Hobbies</h1>
+      <p>Things I care about outside the lab.</p>
+    </div>
 
-    <section class="hobby-section">
-      <div class="section-header fade-in"><h2>Music</h2><div class="section-line"></div></div>
-      <div class="hobby-block fade-in">
-        <div class="hobby-emoji">🎵</div>
-        <div>
-          <h3>Oboe</h3>
-          <p>I'm a classically trained oboist. The oboe requires a level of sustained focus and breath control that I find oddly similar to the patience of bench research — both punish impatience and reward deliberate practice.</p>
-        </div>
-      </div>
-    </section>
+    <div class="hobby-list">
 
-    <section class="hobby-section">
-      <div class="section-header fade-in"><h2>Investing & Entrepreneurship</h2><div class="section-line"></div></div>
-      <div class="hobby-block fade-in">
-        <div class="hobby-emoji">📈</div>
-        <div>
-          <h3>Personal Investing</h3>
-          <p>I manage my own investment portfolio centered on a core index fund strategy, with a small allocation to high-conviction individual picks. I enjoy thinking about long-term compounding, valuation, and the intersection of technology and market dynamics.</p>
+      <div class="hobby-entry fade-in">
+        <div class="hobby-num">01</div>
+        <div class="hobby-left">
+          <div class="hobby-category">Music</div>
+          <div class="hobby-title">Oboe</div>
+          <div class="hobby-tags">
+            <span class="tag">Classical</span>
+            <span class="tag">Performance</span>
+          </div>
+        </div>
+        <div class="hobby-right">
+          <p class="hobby-desc">
+            Classically trained oboist. The oboe demands a kind of sustained,
+            unforgiving focus — one wrong breath and the whole phrase collapses.
+            I find it oddly similar to bench research: both punish impatience
+            and reward deliberate, repeated practice over time.
+          </p>
+          <div class="hobby-detail">
+            <span class="hobby-detail-label">Since</span>
+            <span class="hobby-detail-val">Childhood</span>
+          </div>
         </div>
       </div>
-      <div class="hobby-block fade-in">
-        <div class="hobby-emoji">🏠</div>
-        <div>
-          <h3>Real Estate</h3>
-          <p>I own and manage a rental property in Cleveland, Ohio. It's been a hands-on education in property management, cash flow analysis, and the realities of being a landlord.</p>
+
+      <div class="hobby-entry fade-in">
+        <div class="hobby-num">02</div>
+        <div class="hobby-left">
+          <div class="hobby-category">Sport</div>
+          <div class="hobby-title">Fencing</div>
+          <div class="hobby-tags">
+            <span class="tag">Competitive</span>
+            <span class="tag">Strategy</span>
+          </div>
+        </div>
+        <div class="hobby-right">
+          <p class="hobby-desc">
+            Fencing is chess at full speed — every bout is a live problem-solving
+            session where the opponent is actively trying to break your plan.
+            It's one of the few activities where I have to be completely present,
+            which makes it a good counterbalance to research.
+          </p>
+          <div class="hobby-detail">
+            <span class="hobby-detail-label">Level</span>
+            <span class="hobby-detail-val">Competitive</span>
+          </div>
         </div>
       </div>
-      <div class="hobby-block fade-in">
-        <div class="hobby-emoji">🚀</div>
-        <div>
-          <h3>Neurotech Entrepreneurship</h3>
-          <p>One of my long-term goals is to found a neurotech startup based on my PhD work. I actively follow the startup and deep-tech investing space, and try to engage with entrepreneurial communities when I can.</p>
+
+      <div class="hobby-entry fade-in">
+        <div class="hobby-num">03</div>
+        <div class="hobby-left">
+          <div class="hobby-category">Finance</div>
+          <div class="hobby-title">Investing</div>
+          <div class="hobby-tags">
+            <span class="tag">Equities</span>
+            <span class="tag">Real Estate</span>
+            <span class="tag">Index Funds</span>
+          </div>
+        </div>
+        <div class="hobby-right">
+          <p class="hobby-desc">
+            I manage my own portfolio built around a core index fund strategy,
+            with a small allocation to high-conviction picks. I also own and manage
+            a rental property in Cleveland — a hands-on education in cash flow,
+            property management, and the realities of being a landlord.
+          </p>
+          <div class="hobby-detail">
+            <span class="hobby-detail-label">Focus</span>
+            <span class="hobby-detail-val">Long-term compounding</span>
+          </div>
         </div>
       </div>
-    </section>
+
+      <div class="hobby-entry fade-in">
+        <div class="hobby-num">04</div>
+        <div class="hobby-left">
+          <div class="hobby-category">Entrepreneurship</div>
+          <div class="hobby-title">Neurotech</div>
+          <div class="hobby-tags">
+            <span class="tag">Startups</span>
+            <span class="tag">Deep Tech</span>
+            <span class="tag">Ventures</span>
+          </div>
+        </div>
+        <div class="hobby-right">
+          <p class="hobby-desc">
+            One long-term goal is to found a neurotech company built on my PhD research.
+            I follow the deep-tech startup space closely — funding rounds, regulatory
+            pathways, clinical translation — and think a lot about what it takes
+            to get a neural device from bench to bedside.
+          </p>
+          <div class="hobby-detail">
+            <span class="hobby-detail-label">Goal</span>
+            <span class="hobby-detail-val">Found a neurotech startup</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
     <footer>
       <span>© 2026 Hakkyun Kim</span>
       <span>
-        <a href="mailto:hxk807@case.edu">Email</a> &nbsp;·&nbsp;
-        <a href="https://linkedin.com/in/hakkyunkim" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
-        <a href="https://github.com/cuzimalive" target="_blank">GitHub</a>
+        <a href="mailto:you@email.com">Email</a> &nbsp;·&nbsp;
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+        <a href="https://github.com/yourhandle" target="_blank">GitHub</a>
       </span>
     </footer>
 
   </main>
+
 </body>
 </html>
