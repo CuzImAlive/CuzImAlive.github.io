@@ -32,7 +32,7 @@
       justify-content: flex-end;
       position: relative;
       overflow: hidden;
-      background: url('/img/hero.JPEG') center 60% / cover no-repeat;
+      background: url('/img/hero.JPEG') center 30% / cover no-repeat;
       margin-top: calc(-1 * var(--nav-h));
       margin-bottom: 0;
     }
@@ -143,6 +143,78 @@
       color: var(--text-muted); min-width: 100px;
     }
     .info-val { color: var(--text-secondary); }
+
+    /* Updates section */
+    .updates-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .update-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1.1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .update-card:hover {
+      border-color: var(--accent-dim);
+      box-shadow: 0 4px 20px rgba(59,130,246,0.07);
+      opacity: 1;
+    }
+
+    .update-source {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .source-linkedin { background: #E8F0FE; color: #1a73e8; }
+    .source-twitter  { background: #E7F3FF; color: #1d9bf0; }
+    .source-article  { background: var(--surface); color: var(--text-secondary); border: 1px solid var(--border); }
+    .source-abstract { background: #F0FDF4; color: #16a34a; }
+    .source-update   { background: #FFF7ED; color: #c2410c; }
+
+    [data-theme="dark"] .source-linkedin { background: #1e2d4a; color: #93b4f5; }
+    [data-theme="dark"] .source-twitter  { background: #0d2236; color: #60b4f7; }
+    [data-theme="dark"] .source-abstract { background: #0d2d1a; color: #4ade80; }
+    [data-theme="dark"] .source-update   { background: #2d1a0d; color: #fb923c; }
+
+    .update-body { flex: 1; min-width: 0; }
+
+    .update-title {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+      line-height: 1.45;
+    }
+
+    .update-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 0.4rem;
+    }
+
+    .update-date {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
   </style>
 </head>
 <body>
@@ -179,9 +251,8 @@
         <div class="role">Biomedical Engineering Student · CWRU</div>
         <p>
           I'm a biomedical engineering student at Case Western Reserve University
-          with a focus on neural engineering.
-          Outside the lab, I fence competitively, play oboe, and think about
-          the future of neurotech.
+          focused on neural engineering and non-opioid pain management.
+          Outside the lab, I fence competitively, play oboe, and invest in stocks and real estate.
         </p>
 
         <div class="info-list">
@@ -195,11 +266,11 @@
           </div>
           <div class="info-row">
             <span class="info-key">Lab</span>
-            <span class="info-val">CWRU PBM Lab PI: Dr. Michael Moffitt and Dr. Michael Jenkins</span>
+            <span class="info-val">PBM Lab · PI: Dr. Michael Moffitt</span>
           </div>
           <div class="info-row">
             <span class="info-key">Interests</span>
-            <span class="info-val">Electrophysiology, Pain, Photobiomodulation, Neurotech</span>
+            <span class="info-val">Neural Engineering, BCI, Neuromodulation, Translational Neurotech</span>
           </div>
           <div class="info-row">
             <span class="info-key">Email</span>
@@ -208,6 +279,48 @@
         </div>
       </div>
     </div>
+
+    <!-- Updates -->
+    <section style="margin-top: 3rem;" class="fade-in">
+      <div class="section-header">
+        <h2>Updates</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="updates-grid">
+
+        <!-- Example entries — replace with your real links and content -->
+        <a href="#" class="update-card">
+          <span class="update-source source-abstract">Abstract</span>
+          <div class="update-body">
+            <div class="update-title">C-fiber ECAP Recording Methodology — Spring Intersections 2025</div>
+            <div class="update-desc">Submitted abstract documenting in vivo C-fiber ECAP recordings from rat sciatic nerve with nerve transection control.</div>
+            <div class="update-date">Mar 2025</div>
+          </div>
+        </a>
+
+        <a href="#" class="update-card">
+          <span class="update-source source-update">Update</span>
+          <div class="update-body">
+            <div class="update-title">Accepted to Mayo Clinic SURF Program</div>
+            <div class="update-desc">Joining Dr. Kendall Lee's Neural Engineering & Precision Surgery Lab for summer 2025.</div>
+            <div class="update-date">Feb 2025</div>
+          </div>
+        </a>
+
+        <!-- To add a LinkedIn post:
+        <a href="YOUR_LINKEDIN_POST_URL" class="update-card" target="_blank">
+          <span class="update-source source-linkedin">LinkedIn</span>
+          <div class="update-body">
+            <div class="update-title">Your post title or first line</div>
+            <div class="update-desc">Short description of what the post is about.</div>
+            <div class="update-date">Month Year</div>
+          </div>
+        </a>
+        -->
+
+      </div>
+    </section>
 
     <footer>
       <span>© 2026 Hakkyun Kim</span>
