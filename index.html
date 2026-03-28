@@ -7,20 +7,19 @@
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/theme.js"></script>
   <style>
-    /* ---- Hero ---- */
+    /* ---- Hero (full bleed, outside main) ---- */
     .hero {
       height: 100vh;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      margin-top: calc(-1 * var(--nav-h));
-      padding-bottom: 4rem;
       position: relative;
       overflow: hidden;
-      background: url('/img/hero.JPEG') center center / cover no-repeat;
+      background: url('/img/hero.jpeg') center center / cover no-repeat;
+      margin-top: calc(-1 * var(--nav-h));  /* slide under fixed nav */
     }
 
-    /* Dark gradient overlay */
     .hero::before {
       content: '';
       position: absolute;
@@ -33,8 +32,15 @@
       );
     }
 
-    /* Keep text above overlay */
-    .hero > * { position: relative; z-index: 1; }
+    /* Text sits inside max-width but photo is full bleed */
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 2rem 4rem;
+    }
 
     .hero-name {
       font-family: var(--font-display);
@@ -90,7 +96,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: var(--accent);
+      background: #fff;
       animation: scrollDrop 1.6s ease 1s infinite;
     }
 
@@ -188,23 +194,25 @@
     <button id="theme-toggle" aria-label="Toggle theme"></button>
   </nav>
 
-  <main>
-
-    <!-- Hero -->
-    <section class="hero">
+  <!-- Hero is outside <main> so it's not constrained by max-width -->
+  <section class="hero">
+    <div class="hero-inner">
       <h1 class="hero-name">Hakkyun Kim</h1>
       <p class="hero-tagline">
+        Researching non-opioid pain management through selective neural inhibition.
         Aspiring physician-scientist and neural engineer.
       </p>
       <div class="scroll-indicator">
         <span>Scroll</span>
         <div class="scroll-line"></div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <main>
 
     <hr class="hero-divider" />
 
-    <!-- About -->
     <div class="about-grid fade-in">
       <div class="avatar">
         <img src="/img/3a0832c7f77dde69.jpeg" alt="Hakkyun Kim" />
@@ -262,7 +270,7 @@
       </div>
       <div class="info-row">
         <span class="info-key">Email</span>
-        <span class="info-val"><a href="/cdn-cgi/l/email-protection#6109190a59515621020012044f040514"><span class="__cf_email__" data-cfemail="2048584b18101760434153450e454455">[email&#160;protected]</span></a></span>
+        <span class="info-val"><a href="mailto:hxk807@case.edu">hxk807@case.edu</a></span>
       </div>
     </div>
 
@@ -294,5 +302,13 @@
     <footer>
       <span>© 2026 Hakkyun Kim</span>
       <span>
-        <a href="/cdn-cgi/l/email-protection#eb839380d3dbdcab888a988ec58e8f9e">Email</a> &nbsp;·&nbsp;
-        <a href="https://linkedin.com/in/hakkyunkim" target="_b
+        <a href="mailto:hxk807@case.edu">Email</a> &nbsp;·&nbsp;
+        <a href="https://linkedin.com/in/hakkyunkim" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+        <a href="https://github.com/cuzimalive" target="_blank">GitHub</a>
+      </span>
+    </footer>
+
+  </main>
+
+</body>
+</html>
