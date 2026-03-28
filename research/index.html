@@ -3,22 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research — Hakkyun Kim</title>
+  <title>Coming Soon — Hakkyun Kim</title>
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/theme.js"></script>
   <style>
-    .research-item { margin-bottom: 1.25rem; }
-    .research-item .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.6rem; }
-    .research-item .year { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; padding-top: 0.1rem; }
-    .research-item p { font-size: 0.88rem; margin-top: 0.5rem; }
-    .research-item .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
-    .badge { display: inline-block; font-family: var(--font-mono); font-size: 0.66rem; padding: 0.15rem 0.5rem; border-radius: 100px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
-    .badge-pending  { background: #FEF9C3; color: #92400E; }
-    .badge-progress { background: #DBEAFE; color: #1E40AF; }
-    .badge-accepted { background: #D1FAE5; color: #065F46; }
-    [data-theme="dark"] .badge-pending  { background: #3B2E00; color: #FCD34D; }
-    [data-theme="dark"] .badge-progress { background: #1E3A5F; color: #93C5FD; }
-    [data-theme="dark"] .badge-accepted { background: #064E3B; color: #6EE7B7; }
+    .coming-soon {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .coming-soon .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .coming-soon h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .coming-soon p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 360px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .back-link {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -26,109 +63,22 @@
   <nav>
     <a href="/" class="nav-logo">hk<span>.</span></a>
     <ul class="nav-links">
-      <li><a href="/research/">Research</a></li>
-      <li><a href="/projects/">Projects</a></li>
-      <li><a href="/cv/">CV</a></li>
-      <li><a href="/hobbies/">Hobbies</a></li>
+      <li><a href="/coming-soon/">Research</a></li>
+      <li><a href="/coming-soon/">Projects</a></li>
+      <li><a href="/coming-soon/">CV</a></li>
+      <li><a href="/coming-soon/">Hobbies</a></li>
     </ul>
     <button id="theme-toggle" aria-label="Toggle theme"></button>
   </nav>
 
   <main>
-
-    <section class="fade-in" style="margin-bottom: 3rem;">
-      <h1 style="margin-bottom: 1rem;">Research</h1>
-      <p style="max-width: 580px;">
-        My work focuses on non-opioid pain management through selective neural inhibition.
-        I use photobiomodulation (near-infrared light) to transiently block nociceptive C-fibers,
-        and develop electrophysiology pipelines to verify and characterize these effects.
-      </p>
-    </section>
-
-    <section style="margin-bottom: 3rem;">
-      <div class="section-header fade-in"><h2>Publications & Manuscripts</h2><div class="section-line"></div></div>
-      <div class="research-item card fade-in">
-        <div class="card-top">
-          <div>
-            <h3>tSNIP: Transient Selective Neural Inhibition via Photobiomodulation</h3>
-            <span class="badge badge-progress">Manuscript in Preparation</span>
-          </div>
-          <span class="year">2025–26</span>
-        </div>
-        <p>First-author manuscript characterizing the use of near-infrared photobiomodulation to selectively inhibit nociceptive C-fibers in rat sciatic nerve. Includes ECAP recording methodology and stimulus artifact subtraction pipeline.</p>
-        <div class="tags">
-          <span class="tag">Photobiomodulation</span>
-          <span class="tag">C-fiber inhibition</span>
-          <span class="tag">Electrophysiology</span>
-          <span class="tag">MATLAB</span>
-        </div>
-      </div>
-    </section>
-
-    <section style="margin-bottom: 3rem;">
-      <div class="section-header fade-in"><h2>Ongoing Work</h2><div class="section-line"></div></div>
-      <div class="research-item card fade-in">
-        <div class="card-top">
-          <div>
-            <h3>ECAP Recording from Rat Sciatic Nerve</h3>
-            <span class="badge badge-progress">In Progress</span>
-          </div>
-          <span class="year">2024–</span>
-        </div>
-        <p>Developed a compound action potential recording system using Plexon OmniPlex with needle electrodes, biphasic stimulation via A-M Systems Model 2100, and a MATLAB-based epoch extraction and artifact subtraction pipeline. Successfully recorded C-fiber ECAPs confirmed via nerve transection control.</p>
-        <div class="tags">
-          <span class="tag">ECAP</span>
-          <span class="tag">Rat Sciatic Nerve</span>
-          <span class="tag">Plexon OmniPlex</span>
-          <span class="tag">Signal Processing</span>
-        </div>
-      </div>
-      <div class="research-item card fade-in">
-        <div class="card-top">
-          <div>
-            <h3>Mayo Clinic SURF — Neural Engineering & Precision Surgery Lab</h3>
-            <span class="badge badge-accepted">Accepted</span>
-          </div>
-          <span class="year">Summer 2025</span>
-        </div>
-        <p>Research fellowship under Dr. Kendall Lee (former Mayo MSTP director) and Dr. Hojin Shin, focused on neural engineering applications in surgical precision and neuromodulation.</p>
-        <div class="tags">
-          <span class="tag">Neuromodulation</span>
-          <span class="tag">Mayo Clinic</span>
-          <span class="tag">DBS</span>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-header fade-in"><h2>Patent</h2><div class="section-line"></div></div>
-      <div class="research-item card fade-in">
-        <div class="card-top">
-          <div>
-            <h3>Narcolepsy Detection Device</h3>
-            <span class="badge badge-pending">Patent Pending</span>
-          </div>
-          <span class="year">2024</span>
-        </div>
-        <p>ESP32-based multimodal wearable integrating EMG, IMU, and heart rate sensor fusion with haptic feedback for real-time narcolepsy episode detection.</p>
-        <div class="tags">
-          <span class="tag">ESP32</span>
-          <span class="tag">EMG</span>
-          <span class="tag">Sensor Fusion</span>
-          <span class="tag">Wearable</span>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <span>© 2026 Hakkyun Kim</span>
-      <span>
-        <a href="mailto:hxk807@case.edu">Email</a> &nbsp;·&nbsp;
-        <a href="https://linkedin.com/in/hakkyunkim" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
-        <a href="https://github.com/cuzimalive" target="_blank">GitHub</a>
-      </span>
-    </footer>
-
+    <div class="coming-soon">
+      <div class="eyebrow">Under Construction</div>
+      <h1>Coming Soon</h1>
+      <p>This page is still being built. Check back soon.</p>
+      <a href="/" class="back-link">← Back to home</a>
+    </div>
   </main>
+
 </body>
 </html>
