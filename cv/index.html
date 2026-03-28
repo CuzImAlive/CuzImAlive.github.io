@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="../css/style.css" />
   <script src="../js/theme.js"></script>
   <style>
-    /* Download button row */
     .cv-top {
       display: flex;
       justify-content: space-between;
@@ -16,7 +15,6 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
@@ -33,112 +31,44 @@
       color: var(--text-primary);
       background: var(--bg-card);
     }
-    .btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      opacity: 1;
-    }
-
-    /* Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    /* Vertical line */
+    .btn:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
+    .timeline { position: relative; padding-left: 1.5rem; margin-bottom: 2.5rem; }
     .timeline::before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 6px;
-      bottom: 0;
+      left: 0; top: 6px; bottom: 0;
       width: 1px;
       background: var(--border);
     }
-
-    .tl-item {
-      position: relative;
-      margin-bottom: 1.75rem;
-    }
-
-    /* Dot */
+    .tl-item { position: relative; margin-bottom: 1.75rem; }
     .tl-item::before {
       content: '';
       position: absolute;
-      left: -1.5rem;
-      top: 6px;
-      width: 7px;
-      height: 7px;
+      left: -1.5rem; top: 6px;
+      width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--accent);
       transform: translateX(-3px);
     }
-
-    .tl-date {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      letter-spacing: 0.06em;
-      margin-bottom: 0.2rem;
-    }
-
-    .tl-item h3 {
-      margin-bottom: 0.15rem;
-      font-size: 0.95rem;
-    }
-
-    .tl-sub {
-      font-size: 0.83rem;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-
-    .tl-item p {
-      font-size: 0.85rem;
-    }
-
-    /* Skills table */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 0.75rem;
-    }
-
-    .skill-group h3 {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
-      font-family: var(--font-mono);
-      font-weight: 500;
-    }
-
-    .skill-group ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .skill-group li {
-      font-size: 0.87rem;
-      color: var(--text-secondary);
-    }
+    .tl-date { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.06em; margin-bottom: 0.2rem; }
+    .tl-item h3 { margin-bottom: 0.15rem; font-size: 0.95rem; }
+    .tl-sub { font-size: 0.83rem; color: var(--accent); margin-bottom: 0.4rem; }
+    .tl-item p { font-size: 0.85rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; }
+    .skill-group h3 { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; font-family: var(--font-mono); font-weight: 500; }
+    .skill-group ul { list-style: none; display: flex; flex-direction: column; gap: 0.2rem; }
+    .skill-group li { font-size: 0.87rem; color: var(--text-secondary); }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="../index.html" class="nav-logo">hk<span>.</span></a>
+    <a href="../" class="nav-logo">hk<span>.</span></a>
     <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="cv.html">CV</a></li>
-      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="../research/">Research</a></li>
+      <li><a href="../projects/">Projects</a></li>
+      <li><a href="../cv/">CV</a></li>
+      <li><a href="../hobbies/">Hobbies</a></li>
     </ul>
     <button id="theme-toggle" aria-label="Toggle theme"></button>
   </nav>
@@ -147,18 +77,11 @@
 
     <div class="cv-top fade-in">
       <h1>CV</h1>
-      <!-- Replace href with path to your actual PDF once uploaded -->
-      <a href="../files/hakkyun_kim_cv.pdf" class="btn" download>
-        ↓ Download PDF
-      </a>
+      <a href="../files/hakkyun_kim_cv.pdf" class="btn" download>↓ Download PDF</a>
     </div>
 
-    <!-- Education -->
     <section style="margin-bottom: 3rem;">
-      <div class="section-header fade-in">
-        <h2>Education</h2>
-        <div class="section-line"></div>
-      </div>
+      <div class="section-header fade-in"><h2>Education</h2><div class="section-line"></div></div>
       <div class="timeline fade-in">
         <div class="tl-item">
           <div class="tl-date">2023 — 2027 (expected)</div>
@@ -169,41 +92,26 @@
       </div>
     </section>
 
-    <!-- Research Experience -->
     <section style="margin-bottom: 3rem;">
-      <div class="section-header fade-in">
-        <h2>Research Experience</h2>
-        <div class="section-line"></div>
-      </div>
+      <div class="section-header fade-in"><h2>Research Experience</h2><div class="section-line"></div></div>
       <div class="timeline fade-in">
-
         <div class="tl-item">
           <div class="tl-date">2024 — Present</div>
           <h3>Moffitt Lab, CWRU</h3>
           <div class="tl-sub">Graduate Research Assistant · Dr. Mike Moffitt &amp; Dr. Aaron Jenkins</div>
-          <p>
-            Developing tSNIP (Transient Selective Neural Inhibition via Photobiomodulation)
-            as a non-opioid pain management approach. ECAP recording from rat sciatic nerve,
-            MATLAB analysis pipelines, PBM experiments.
-          </p>
+          <p>Developing tSNIP as a non-opioid pain management approach. ECAP recording from rat sciatic nerve, MATLAB analysis pipelines, PBM experiments.</p>
         </div>
-
         <div class="tl-item">
           <div class="tl-date">Summer 2025</div>
           <h3>Mayo Clinic — Neural Engineering &amp; Precision Surgery Lab</h3>
           <div class="tl-sub">SURF Fellow · Dr. Kendall Lee &amp; Dr. Hojin Shin</div>
           <p>Research in neuromodulation and surgical precision.</p>
         </div>
-
       </div>
     </section>
 
-    <!-- Teaching -->
     <section style="margin-bottom: 3rem;">
-      <div class="section-header fade-in">
-        <h2>Teaching</h2>
-        <div class="section-line"></div>
-      </div>
+      <div class="section-header fade-in"><h2>Teaching</h2><div class="section-line"></div></div>
       <div class="timeline fade-in">
         <div class="tl-item">
           <div class="tl-date">2024 — Present</div>
@@ -218,44 +126,24 @@
       </div>
     </section>
 
-    <!-- Skills -->
     <section>
-      <div class="section-header fade-in">
-        <h2>Skills</h2>
-        <div class="section-line"></div>
-      </div>
+      <div class="section-header fade-in"><h2>Skills</h2><div class="section-line"></div></div>
       <div class="skills-grid fade-in">
         <div class="skill-group">
           <h3>Programming</h3>
-          <ul>
-            <li>MATLAB</li>
-            <li>Python</li>
-            <li>C++ (Arduino)</li>
-          </ul>
+          <ul><li>MATLAB</li><li>Python</li><li>C++ (Arduino)</li></ul>
         </div>
         <div class="skill-group">
           <h3>Instrumentation</h3>
-          <ul>
-            <li>Plexon OmniPlex</li>
-            <li>A-M Systems 2100</li>
-            <li>Needle Electrodes</li>
-          </ul>
+          <ul><li>Plexon OmniPlex</li><li>A-M Systems 2100</li><li>Needle Electrodes</li></ul>
         </div>
         <div class="skill-group">
           <h3>Techniques</h3>
-          <ul>
-            <li>ECAP Recording</li>
-            <li>Sciatic Nerve Surgery</li>
-            <li>Signal Averaging</li>
-          </ul>
+          <ul><li>ECAP Recording</li><li>Sciatic Nerve Surgery</li><li>Signal Averaging</li></ul>
         </div>
         <div class="skill-group">
           <h3>Tools</h3>
-          <ul>
-            <li>Git / GitHub</li>
-            <li>LaTeX</li>
-            <li>Plexon SDK</li>
-          </ul>
+          <ul><li>Git / GitHub</li><li>LaTeX</li><li>Plexon SDK</li></ul>
         </div>
       </div>
     </section>
@@ -270,6 +158,5 @@
     </footer>
 
   </main>
-
 </body>
 </html>

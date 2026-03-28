@@ -7,10 +7,7 @@
   <link rel="stylesheet" href="../css/style.css" />
   <script src="../js/theme.js"></script>
   <style>
-    .research-item {
-      margin-bottom: 1.25rem;
-    }
-
+    .research-item { margin-bottom: 1.25rem; }
     .research-item .card-top {
       display: flex;
       justify-content: space-between;
@@ -18,7 +15,6 @@
       gap: 1rem;
       margin-bottom: 0.6rem;
     }
-
     .research-item .year {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -26,20 +22,8 @@
       white-space: nowrap;
       padding-top: 0.1rem;
     }
-
-    .research-item p {
-      font-size: 0.88rem;
-      margin-top: 0.5rem;
-    }
-
-    .research-item .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.85rem;
-    }
-
-    /* Status badge */
+    .research-item p { font-size: 0.88rem; margin-top: 0.5rem; }
+    .research-item .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
     .badge {
       display: inline-block;
       font-family: var(--font-mono);
@@ -50,11 +34,9 @@
       text-transform: uppercase;
       font-weight: 500;
     }
-
     .badge-pending  { background: #FEF9C3; color: #92400E; }
     .badge-progress { background: #DBEAFE; color: #1E40AF; }
     .badge-accepted { background: #D1FAE5; color: #065F46; }
-
     [data-theme="dark"] .badge-pending  { background: #3B2E00; color: #FCD34D; }
     [data-theme="dark"] .badge-progress { background: #1E3A5F; color: #93C5FD; }
     [data-theme="dark"] .badge-accepted { background: #064E3B; color: #6EE7B7; }
@@ -63,21 +45,18 @@
 <body>
 
   <nav>
-    <a href="../index.html" class="nav-logo">hk<span>.</span></a>
+    <a href="../" class="nav-logo">hk<span>.</span></a>
     <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="cv.html">CV</a></li>
-      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="../research/">Research</a></li>
+      <li><a href="../projects/">Projects</a></li>
+      <li><a href="../cv/">CV</a></li>
+      <li><a href="../hobbies/">Hobbies</a></li>
     </ul>
     <button id="theme-toggle" aria-label="Toggle theme"></button>
   </nav>
 
   <main>
 
-    <!-- Overview -->
     <section class="fade-in" style="margin-bottom: 3rem;">
       <h1 style="margin-bottom: 1rem;">Research</h1>
       <p style="max-width: 580px;">
@@ -87,13 +66,11 @@
       </p>
     </section>
 
-    <!-- Publications / Papers -->
     <section style="margin-bottom: 3rem;">
       <div class="section-header fade-in">
         <h2>Publications & Manuscripts</h2>
         <div class="section-line"></div>
       </div>
-
       <div class="research-item card fade-in">
         <div class="card-top">
           <div>
@@ -114,17 +91,13 @@
           <span class="tag">MATLAB</span>
         </div>
       </div>
-
-      <!-- Add more papers here following the same pattern -->
     </section>
 
-    <!-- Ongoing research -->
     <section style="margin-bottom: 3rem;">
       <div class="section-header fade-in">
         <h2>Ongoing Work</h2>
         <div class="section-line"></div>
       </div>
-
       <div class="research-item card fade-in">
         <div class="card-top">
           <div>
@@ -146,7 +119,6 @@
           <span class="tag">Signal Processing</span>
         </div>
       </div>
-
       <div class="research-item card fade-in">
         <div class="card-top">
           <div>
@@ -168,13 +140,11 @@
       </div>
     </section>
 
-    <!-- Patent -->
     <section>
       <div class="section-header fade-in">
         <h2>Patent</h2>
         <div class="section-line"></div>
       </div>
-
       <div class="research-item card fade-in">
         <div class="card-top">
           <div>
@@ -206,6 +176,5 @@
     </footer>
 
   </main>
-
 </body>
 </html>
